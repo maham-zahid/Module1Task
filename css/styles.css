@@ -1,0 +1,111 @@
+:root {
+  --primary-color: #4EA685;
+  --secondary-color: #57B894;
+  --black: #000000;
+  --white: #ffffff;
+  --gray: #efefef;
+  --gray-2: #757575;
+}
+
+* {
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+html, body {
+  height: 100vh;
+  display: grid;
+  place-items: center;
+  background-color: var(--gray);
+}
+
+.container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 100%;
+  max-width: 400px;
+  padding: 2rem;
+  background-color: var(--white);
+  border-radius: 10px;
+  -webkit-box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.form-wrapper {
+  width: 100%;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+p {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.form {
+  display: grid;
+  gap: 1rem;
+}
+.form .input-group {
+  display: grid;
+  gap: 0.5rem;
+}
+.form .input-group label {
+  font-weight: 500;
+}
+.form .input-group input {
+  padding: 0.75rem;
+  border: 1px solid var(--gray-2);
+  border-radius: 5px;
+  outline: none;
+  font-size: 1rem;
+}
+.form .input-group input:focus {
+  border-color: var(--primary-color);
+}
+.form .forgot-password {
+  text-align: right;
+  color: var(--primary-color);
+  font-size: 0.875rem;
+  text-decoration: none;
+}
+.form .forgot-password:hover {
+  text-decoration: underline;
+}
+.form button {
+  padding: 0.75rem;
+  background-color: var(--primary-color);
+  color: var(--white);
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  -webkit-transition: background-color 0.3s;
+  transition: background-color 0.3s;
+}
+.form button:hover {
+  background-color: var(--secondary-color);
+}
+.form p {
+  font-size: 0.875rem;
+}
+.form p a {
+  color: var(--primary-color);
+  text-decoration: none;
+}
+.form p a:hover {
+  text-decoration: underline;
+}

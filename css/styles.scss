@@ -1,0 +1,114 @@
+
+:root {
+    --primary-color: #4EA685;
+    --secondary-color: #57B894;
+    --black: #000000;
+    --white: #ffffff;
+    --gray: #efefef;
+    --gray-2: #757575;
+}
+
+* {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100vh;
+    display: grid;
+    place-items: center;
+    background-color: var(--gray);
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 400px;
+    padding: 2rem;
+    background-color: var(--white);
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.form-wrapper {
+    width: 100%;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 2.0rem;
+}
+
+p {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.form {
+    display: grid;
+    gap: 1rem;
+
+    .input-group {
+        display: grid;
+        gap: 0.5rem;
+
+        label {
+            font-weight: 500;
+        }
+
+        input {
+            padding: 0.75rem;
+            border: 1px solid var(--gray-2);
+            border-radius: 5px;
+            outline: none;
+            font-size: 1rem;
+
+            &:focus {
+                border-color: var(--primary-color);
+            }
+        }
+    }
+
+    .forgot-password {
+        text-align: right;
+        color: var(--primary-color);
+        font-size: 0.875rem;
+        text-decoration: none;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+
+    button {
+        padding: 0.75rem;
+        background-color: var(--primary-color);
+        color: var(--white);
+        border: none;
+        border-radius: 5px;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: background-color 0.3s;
+
+        &:hover {
+            background-color: var(--secondary-color);
+        }
+    }
+
+    p {
+        font-size: 0.875rem;
+
+        a {
+            color: var(--primary-color);
+            text-decoration: none;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+}
