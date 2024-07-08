@@ -18,11 +18,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Register user
     if ($register->registerUser($username, $password)) {
-        echo "User registered successfully!";
-        // Redirect or do something else upon successful registration
+        echo "<script>alert('User registered successfully'); window.location.href = '../index.php';</script>";
     } else {
-        echo "Registration failed!";
-        // Handle failed registration
+        echo "<script>alert('Not registered'); window.location.href = '../register.php';</script>";
+
     }
 }
 

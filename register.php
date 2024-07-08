@@ -29,8 +29,8 @@
                     <label for="confirmPassword">Confirm Password</label>
                     <input type="password" id="confirm-password" name="confirmPassword" placeholder="Confirm Password" required>
                 </div>
-                <button type="submit">Sign up</button>
-                <p>Already have an account? <a href="index.php">Log in now!</a></p>
+                <button type="submit">Register </button>
+                
             </form>
         </div>
     </div>

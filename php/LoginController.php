@@ -12,16 +12,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $username = $_POST['username'];
     $password = $_POST['password'];
 
-    $user = $login->loginUser($username, $password);
-
-    if ($user) {
-        $_SESSION['user'] = $user;
-        header('Location: dashboard.php');
-        exit();
+    if ($login->loginUser($username, $password)) {
+        echo "<script>alert('Successfully logged in'); window.location.href = '../dashboard.php';</script>";
     } else {
-        echo "<script>alert('Login failed! Invalid username or password.'); window.location.href = 'index.php';</script>";
+        echo "<script>alert('Invalid email or password'); window.location.href = '../index.php';</script>";
     }
-    } else {
-        echo "";
-    }
+} else {
+    echo "";
+}
 ?>

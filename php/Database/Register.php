@@ -28,18 +28,25 @@ class Register {
         $conn = $this->db->getConnection();
         $sql = "SELECT password FROM users WHERE username = ? LIMIT 1";
         $stmt = $conn->prepare($sql);
+        
+        if ($stmt === false) {
+            die('Prepare failed: ' . $conn->error);
+        }
+        
         $stmt->bind_param("s", $username);
         $stmt->execute();
-        $result = $stmt->store_result();
+        $result = $stmt->get_result();
 
-        // Verify the password of user trying to login
-    if ($stmt->num_rows > 0 && password_verify($password)) {
-        return true;
-    } else {
-        return false;
-    }
+        if ($result->num_rows > 0) {
+            $row = $result->fetch_assoc();
+            if ($password === $row['password']) {
+                return true;
+            } else {
+                return false;
+            }
+        } else {
+            return false;
+        }
     }
 }
-  
-
 ?>
