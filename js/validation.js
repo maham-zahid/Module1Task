@@ -1,66 +1,59 @@
-document.addEventListener('DOMContentLoaded', function() {
-});
-
 function validateLoginForm() {
-    const username = document.getElementById('username').value;
+    clearErrors();
+
+    const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
+    let isValid = true;
 
-    if (isEmpty(username)) {
-        alert('Please enter your username');
-        return false;
-    }
-
-    if (!isValidEmail(username)) {
-        alert('Please enter a valid email address');
-        return false;
+    if (isEmpty(email)) {
+        showError('email-error', 'Please enter your email');
+        isValid = false;
+    } else if (!isValidEmail(email)) {
+        showError('email-error', 'Please enter a valid email address');
+        isValid = false;
     }
 
     if (isEmpty(password)) {
-        alert('Please enter your password');
-        return false;
+        showError('password-error', 'Please enter your password');
+        isValid = false;
+    } else if (getPasswordStrength(password) !== 'strong') {
+        showError('password-error', 'Password must be at least 8 characters long and include at least one uppercase letter, one number, and one special character');
+        isValid = false;
     }
 
-    const passwordStrength = getPasswordStrength(password);
-    if (passwordStrength !== 'strong') {
-        alert('Password must be at least 8 characters long');
-        return false;
-    }
-
-    return true;
+    return isValid;
 }
 
 function validateRegistrationForm() {
-    const username = document.getElementById('register-username').value;
-    const password = document.getElementById('register-password').value;
-    const confirmPassword = document.getElementById('confirm-password').value;
+    clearErrors();
 
-    if (isEmpty(username)) {
-        alert('Please enter your username');
-        return false;
-    }
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+    const confirmPassword = document.getElementById('confpassword').value;
+    let isValid = true;
 
-    if (!isValidEmail(username)) {
-        alert('Please enter a valid email address');
-        return false;
+    if (isEmpty(email)) {
+        showError('email-error', 'Please enter your email');
+        isValid = false;
+    } else if (!isValidEmail(email)) {
+        showError('email-error', 'Please enter a valid email address');
+        isValid = false;
     }
 
     if (isEmpty(password)) {
-        alert('Please enter your password');
-        return false;
-    }
-
-    const passwordStrength = getPasswordStrength(password);
-    if (passwordStrength !== 'strong') {
-        alert('Password must be at least 8 characters long');
-        return false;
+        showError('password-error', 'Please enter your password');
+        isValid = false;
+    } else if (getPasswordStrength(password) !== 'strong') {
+        showError('password-error', 'Password must be at least 8 characters long and include at least one uppercase letter, one number, and one special character');
+        isValid = false;
     }
 
     if (password !== confirmPassword) {
-        alert('Passwords do not match');
-        return false;
+        showError('confpassword-error', 'Passwords do not match');
+        isValid = false;
     }
 
-    return true;
+    return isValid;
 }
 
 function isEmpty(value) {
@@ -73,5 +66,15 @@ function isValidEmail(email) {
 }
 
 function getPasswordStrength(password) {
-    return password.length >= 8 ? 'strong' : 'weak';
+    const strongPasswordRegex = /^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+[\]{};':"\\|,.<>/?]).{8,}$/;
+    return strongPasswordRegex.test(password) ? 'strong' : 'weak';
+}
+
+function showError(id, message) {
+    document.getElementById(id).textContent = message;
+}
+
+function clearErrors() {
+    const errors = document.querySelectorAll('.error');
+    errors.forEach(error => error.textContent = '');
 }

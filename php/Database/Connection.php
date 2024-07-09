@@ -7,11 +7,11 @@ class Connection {
     public function getConnection() {
         
         $servername = "localhost";
-        $username = "root";
+        $email = "root";
         $password = "";
-        $dbname = "Authentication";
+        $dbname = "authentication";
 
-        $conn = new \mysqli($servername, $username, $password, $dbname);
+        $conn = new \mysqli($servername, $email, $password, $dbname);
 
         if ($conn->connect_error) {
             die("Connection failed: " . $conn->connect_error);

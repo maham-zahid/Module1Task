@@ -10,12 +10,26 @@ class Register {
         $this->db = new Connection();
     }
 
-    public function registerUser($username, $password) {
+    public function emailExists($email) {
         $conn = $this->db->getConnection();
-    
-        $sql = "INSERT INTO users (username, password) VALUES (?, ?)";
+        $sql = "SELECT email FROM user WHERE email = ? LIMIT 1";
         $stmt = $conn->prepare($sql);
-        $stmt->bind_param("ss", $username, $password);
+        $stmt->bind_param("s", $email);
+        $stmt->execute();
+        $stmt->store_result();
+
+        if ($stmt->num_rows > 0) {
+            return true; // Email exists
+        } else {
+            return false; // Email does not exist
+        }
+    }
+
+    public function registerUser($email, $password) {
+        $conn = $this->db->getConnection();
+        $sql = "INSERT INTO user (email, password) VALUES (?, ?)";
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param("ss", $email, $password);
 
         if ($stmt->execute()) {
             return true;
@@ -24,16 +38,16 @@ class Register {
         }
     }
 
-    public function loginUser($username, $password) {
+    public function loginUser($email, $password) {
         $conn = $this->db->getConnection();
-        $sql = "SELECT password FROM users WHERE username = ? LIMIT 1";
+        $sql = "SELECT password FROM user WHERE email = ? LIMIT 1";
         $stmt = $conn->prepare($sql);
         
         if ($stmt === false) {
             die('Prepare failed: ' . $conn->error);
         }
         
-        $stmt->bind_param("s", $username);
+        $stmt->bind_param("s", $email);
         $stmt->execute();
         $result = $stmt->get_result();
 
@@ -44,8 +58,6 @@ class Register {
             } else {
                 return false;
             }
-        } else {
-            return false;
         }
     }
 }
