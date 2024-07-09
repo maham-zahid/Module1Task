@@ -1,6 +1,7 @@
 <?php
 
-namespace Module1Task\php\Database;
+namespace Module1Task\php;
+require_once "include.php";
 
 class Connection {
     

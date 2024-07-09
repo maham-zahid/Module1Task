@@ -1,7 +1,8 @@
 <?php
-namespace Module1Task\php\Database;
+namespace Module1Task\php;
 
-use Module1Task\php\Database\Connection;
+use Module1Task\php\Connection;
+
 
 class Register {
     private $db;
@@ -42,11 +43,11 @@ class Register {
         $conn = $this->db->getConnection();
         $sql = "SELECT password FROM user WHERE email = ? LIMIT 1";
         $stmt = $conn->prepare($sql);
-        
+
         if ($stmt === false) {
             die('Prepare failed: ' . $conn->error);
         }
-        
+
         $stmt->bind_param("s", $email);
         $stmt->execute();
         $result = $stmt->get_result();

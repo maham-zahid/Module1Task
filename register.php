@@ -1,6 +1,5 @@
 <?php
-    require_once 'php\Database\Connection.php';
-    require_once 'php\Database\Register.php';
+    require_once "php/include.php";
 ?>
 
 
@@ -32,7 +31,7 @@
         <input type="password" id="confpassword" name="confirmPassword" placeholder="Confirm Password" required>
         <span class="error" id="confpassword-error"></span>
     </div>
-    <button type="submit">Register</button>
+    <button type="submit" name="register">Register</button>
 </form>
 
         </div>

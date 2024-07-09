@@ -1,6 +1,5 @@
 <?php
-    require_once 'php\Database\Connection.php';
-    require_once 'php\Database\Register.php';
+    require_once "php/include.php";
 ?>
 
 
@@ -16,7 +15,7 @@
     <div class="container">
         <div class="form-wrapper">
             <h2 class="heading">Log in</h2>
-            <form class="form" id="loginForm" method="POST" action="php/LoginController.php" onsubmit="return validateLoginForm()">
+            <form class="form" id="loginForm" method="POST"  onsubmit="return validateLoginForm()">
                 <div class="input-group">
                     <label for="email">Email</label>
                     <input type="text" id="email" name="email" placeholder="abc@gmail.com" required>
@@ -27,7 +26,7 @@
                     <input type="password" id="password" name="password" placeholder="Password" required>
                     <span class="error" id="password-error"></span>
                 </div>
-                <button type="submit">Log in</button>
+                <button type="submit" name="login">Log in</button>
             </form>
 
         </div>
