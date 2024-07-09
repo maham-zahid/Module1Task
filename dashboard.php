@@ -10,7 +10,7 @@
     <div class="container1">
         <div class="form-wrapper">
             <h1 class="welcome">WELCOME</h1>
-            <p class="message">You have successfully logged in to dashboard</p>
+            <p class="message">You have successfully logged in</p>
         </div>
     </div>
 </body>
