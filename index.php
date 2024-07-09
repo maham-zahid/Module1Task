@@ -14,23 +14,22 @@
 <body>
     <div class="container">
         <div class="form-wrapper">
-            <h2 class="heading">Log in</h2>
-            <form class="form" id="loginForm" method="POST"  onsubmit="return validateLoginForm()">
-                <div class="input-group">
-                    <label for="email">Email</label>
-                    <input type="text" id="email" name="email" placeholder="abc@gmail.com" required>
-                    <span class="error" id="email-error"></span>
+            <h2 class="form-wrapper__heading">Log in</h2>
+            <form class="form" id="loginForm" method="POST" onsubmit="return validateLoginForm()">
+                <div class="form__group">
+                    <label for="email" class="form__label">Email</label>
+                    <input type="text" id="email" name="email" placeholder="abc@gmail.com" class="form__input" required>
+                    <span class="form__error" id="email-error"></span>
                 </div>
-                <div class="input-group">
-                    <label for="password">Password</label>
-                    <input type="password" id="password" name="password" placeholder="Password" required>
-                    <span class="error" id="password-error"></span>
+                <div class="form__group">
+                    <label for="password" class="form__label">Password</label>
+                    <input type="password" id="password" name="password" placeholder="Password" class="form__input" required>
+                    <span class="form__error" id="password-error"></span>
                 </div>
-                <button type="submit" name="login">Log in</button>
+                <button type="submit" name="login" class="form__button">Log in</button>
             </form>
-
         </div>
     </div>
-    <script src="js\validation.js"></script>
+    <script src="js/validation.js"></script>
 </body>
 </html>

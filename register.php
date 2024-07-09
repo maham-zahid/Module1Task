@@ -14,28 +14,27 @@
 <body>
     <div class="container">
         <div class="form-wrapper">
-            <h2 class="heading">Register User</h2>
+            <h2 class="form-wrapper__heading">Register User</h2>
             <form class="form" id="registerForm" action="php/RegisterController.php" method="POST" onsubmit="return validateRegistrationForm()">
-    <div class="input-group">
-        <label for="email">Email</label>
-        <input type="text" id="email" name="email" placeholder="abc@gmail.com" required>
-        <span class="error" id="email-error"></span>
-    </div>
-    <div class="input-group">
-        <label for="password">Password</label>
-        <input type="password" id="password" name="password" placeholder="Password" required>
-        <span class="error" id="password-error"></span>
-    </div>
-    <div class="input-group">
-        <label for="confirmPassword">Confirm Password</label>
-        <input type="password" id="confpassword" name="confirmPassword" placeholder="Confirm Password" required>
-        <span class="error" id="confpassword-error"></span>
-    </div>
-    <button type="submit" name="register">Register</button>
-</form>
-
+                <div class="form__group">
+                    <label for="email" class="form__label">Email</label>
+                    <input type="text" id="email" name="email" placeholder="abc@gmail.com" class="form__input" required>
+                    <span class="form__error" id="email-error"></span>
+                </div>
+                <div class="form__group">
+                    <label for="password" class="form__label">Password</label>
+                    <input type="password" id="password" name="password" placeholder="Password" class="form__input" required>
+                    <span class="form__error" id="password-error"></span>
+                </div>
+                <div class="form__group">
+                    <label for="confirmPassword" class="form__label">Confirm Password</label>
+                    <input type="password" id="confpassword" name="confirmPassword" placeholder="Confirm Password" class="form__input" required>
+                    <span class="form__error" id="confpassword-error"></span>
+                </div>
+                <button type="submit" name="register" class="form__button">Register</button>
+            </form>
         </div>
     </div>
-    <script src="js\validation.js"></script>    
+    <script src="js/validation.js"></script>
 </body>
 </html>

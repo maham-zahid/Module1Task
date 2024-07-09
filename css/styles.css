@@ -45,34 +45,30 @@ html, body {
   width: 100%;
 }
 
-.heading {
+.form-wrapper__heading {
   text-align: center;
   margin-bottom: 2rem;
 }
 
-/*p {
-    text-align: center;
-    margin-bottom: 1rem;
-}*/
 .form {
   display: grid;
   gap: 1rem;
 }
-.form .input-group {
+.form .form__group {
   display: grid;
   gap: 0.5rem;
 }
-.form .input-group label {
+.form .form__group orm__label {
   font-weight: 500;
 }
-.form .input-group input {
+.form .form__group input {
   padding: 0.75rem;
   border: 1px solid var(--gray-2);
   border-radius: 5px;
   outline: none;
   font-size: 1rem;
 }
-.form .input-group input:focus {
+.form .form__group input:focus {
   border-color: var(--primary-color);
 }
 .form .forgot-password {
@@ -84,7 +80,7 @@ html, body {
 .form .forgot-password:hover {
   text-decoration: underline;
 }
-.form button {
+.form .form__button {
   padding: 0.75rem;
   background-color: var(--primary-color);
   color: var(--white);
@@ -95,7 +91,7 @@ html, body {
   -webkit-transition: background-color 0.3s;
   transition: background-color 0.3s;
 }
-.form button:hover {
+.form .form__button:hover {
   background-color: var(--secondary-color);
 }
 .form p {
@@ -144,7 +140,7 @@ html, body {
   margin-bottom: 1rem;
 }
 
-.error {
+.form__error {
   color: rgb(255, 0, 0);
   font-size: 15px;
 }/*# sourceMappingURL=styles.css.map */

@@ -3,9 +3,11 @@
 namespace Module1Task\php;
 require_once "include.php";
 
-class Connection {
+class Connection
+{
     
-    public function getConnection() {
+    public function getConnection()
+    {
         
         $servername = "localhost";
         $email = "root";

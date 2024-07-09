@@ -4,14 +4,17 @@ namespace Module1Task\php;
 use Module1Task\php\Connection;
 
 
-class Register {
+class Register
+{
     private $db;
 
-    public function __construct() {
+    public function __construct()
+    {
         $this->db = new Connection();
     }
 
-    public function emailExists($email) {
+    public function emailExists($email)
+    {
         $conn = $this->db->getConnection();
         $sql = "SELECT email FROM user WHERE email = ? LIMIT 1";
         $stmt = $conn->prepare($sql);
@@ -26,7 +29,8 @@ class Register {
         }
     }
 
-    public function registerUser($email, $password) {
+    public function registerUser($email, $password)
+    {
         $conn = $this->db->getConnection();
         $sql = "INSERT INTO user (email, password) VALUES (?, ?)";
         $stmt = $conn->prepare($sql);
@@ -39,7 +43,8 @@ class Register {
         }
     }
 
-    public function loginUser($email, $password) {
+    public function loginUser($email, $password)
+    {
         $conn = $this->db->getConnection();
         $sql = "SELECT password FROM user WHERE email = ? LIMIT 1";
         $stmt = $conn->prepare($sql);
