@@ -32,6 +32,7 @@
                     <span class="form__error" id="confpassword-error"></span>
                 </div>
                 <button type="submit" name="register" class="form__button">Register</button>
+                <p class="form__text">Already have an account? <a href="index.php" class="form__link">Login</a></p>
             </form>
         </div>
     </div>

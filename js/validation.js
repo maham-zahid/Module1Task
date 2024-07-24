@@ -24,7 +24,7 @@ function validateLoginForm() {
     return isValid;
 }
 
-function validateRegistrationForm() {
+function validateRegistrationForm(event) {
     clearErrors();
 
     const email = document.getElementById('email').value;
@@ -53,7 +53,33 @@ function validateRegistrationForm() {
         isValid = false;
     }
 
-    return isValid;
+    if (isValid) {
+        // Prevent the default form submission
+        event.preventDefault();
+
+        checkUserExists(email, function(emailExists) {
+            if (emailExists) {
+                showError('email-error', 'User already exists');
+            } else {
+                document.getElementById('registerForm').submit();
+            }
+        });
+    }
+
+    return false; // Prevent default form submission to wait for AJAX
+}
+
+function checkUserExists(email, callback) {
+    const xhr = new XMLHttpRequest();
+    xhr.open('POST', 'php/check_user.php', true);
+    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            const response = JSON.parse(xhr.responseText);
+            callback(response.exists);
+        }
+    };
+    xhr.send(`email=${encodeURIComponent(email)}`);
 }
 
 function isEmpty(value) {
@@ -75,6 +101,6 @@ function showError(id, message) {
 }
 
 function clearErrors() {
-    const errors = document.querySelectorAll('.error');
+    const errors = document.querySelectorAll('.form__error');
     errors.forEach(error => error.textContent = '');
 }

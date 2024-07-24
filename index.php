@@ -27,6 +27,7 @@
                     <span class="form__error" id="password-error"></span>
                 </div>
                 <button type="submit" name="login" class="form__button">Log in</button>
+                <p class="form__text">Don't have an account? <a href="register.php" class="form__link">Register</a></p>
             </form>
         </div>
     </div>
