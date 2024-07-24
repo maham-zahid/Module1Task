@@ -1,6 +1,26 @@
 <?php
-    require_once "php/include.php";
+session_start(); // Start the session
+require_once "php/include.php";
+
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['login'])) {
+    $register = new \Module1Task\php\Register();
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+
+    if ($register->loginUser($email, $password)) {
+        // Set session variables
+        $_SESSION['loggedin'] = true;
+        $_SESSION['email'] = $email;
+        // Redirect to dashboard
+        header("Location: dashboard.php");
+        exit();
+    } else {
+        echo "<script>alert('Invalid email or password'); window.location.href = 'index.php';</script>";
+        exit();
+    }
+}
 ?>
+
 
 
 <!DOCTYPE html>

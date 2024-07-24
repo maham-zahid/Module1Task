@@ -152,4 +152,19 @@ body {
 .form__text {
   text-align: left;
   margin-top: 30px;
+}
+
+.logout__button {
+  padding: 0.75rem 5.5rem;
+  background-color: var(--primary-color);
+  color: var(--white);
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  -webkit-transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease;
+}
+.logout__button:hover {
+  background-color: var(--secondary-color) !important;
 }/*# sourceMappingURL=styles.css.map */
